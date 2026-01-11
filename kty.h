@@ -64,11 +64,13 @@ typedef enum {
     KTY_VARIANT_KTY84_151,
 #endif
 
+    KTY_VARIANT_COUNT
 } kty_variant_t;
 
 
 /**
  * Returns the temperature equivalent to the resistance.
+ * For unsupported sensor type it returns -FLT-MAX.
  *
  * @param variant A variation of the KTY.
  * @param resistance Resistance in ohms.
@@ -78,6 +80,7 @@ float kty_ResistanceToC(kty_variant_t variant, float resistance);
 
 /**
  * Returns the temperature equivalent to the resistance.
+ * For unsupported sensor type it returns -FLT-MAX.
  *
  * @param variant A variation of the KTY.
  * @param resistance Resistance in ohms.
@@ -86,7 +89,8 @@ float kty_ResistanceToC(kty_variant_t variant, float resistance);
 float kty_ResistanceToK(kty_variant_t variant, float resistance);
 
 /**
- * Returns the temperature equivalent to the resistance
+ * Returns the temperature equivalent to the resistance.
+ * For unsupported sensor type it returns -FLT-MAX.
  *
  * @param variant A variation of the KTY.
  * @param resistance Resistance in ohms.
@@ -96,6 +100,7 @@ float kty_ResistanceToF(kty_variant_t variant, float resistance);
 
 /**
  * Returns the minimum and maximum resistance values for the safe measurement range.
+ * For unsupported sensor types it does nothing.
  *
  * @param variant A variation of the KTY.
  * @param min Pointer to pass the minimum value.

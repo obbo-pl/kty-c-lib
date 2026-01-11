@@ -11,6 +11,7 @@
 
 
 #include "kty.h"
+#include <float.h>
 
 
 #ifdef _KTY_DEF_KTY81_210
@@ -86,7 +87,7 @@ typedef struct {
 #undef _KTY_LEN
 #define _KTY_LEN(len)               len
 #undef _KTY_DATAPRT
-#define _KTY_DATAPRT(ptr)
+#define _KTY_DATAPRT(ptr)           /**/
 
 #if KTY_DEF_KTY81_210 + 0 > 0
 static const kty_couple_t kty81_210[KTY_DEF_KTY81_210] =   {{ -55,   980},
@@ -401,7 +402,7 @@ static int kty_data_len[] = { KTY_ITEMS };
 
 
 #undef  _KTY_LEN
-#define _KTY_LEN(len)
+#define _KTY_LEN(len)               /**/
 #undef  _KTY_DATAPRT
 #define _KTY_DATAPRT(ptr)           ptr,
 static const kty_couple_t* const kty_data_ptr[] = { KTY_ITEMS };
@@ -410,6 +411,7 @@ static const kty_couple_t* const kty_data_ptr[] = { KTY_ITEMS };
 
 float kty_ResistanceToC(kty_variant_t variant, float resistance)
 {
+    if ((variant < 0) || (variant >= KTY_VARIANT_COUNT)) return -FLT_MAX;
     float c;
     int lower = 0;
     int upper = kty_data_len[variant] - 1;
@@ -438,20 +440,24 @@ result:
 
 float kty_ResistanceToK(kty_variant_t variant, float resistance)
 {
+    if ((variant < 0) || (variant >= KTY_VARIANT_COUNT)) return -FLT_MAX;
     float k = kty_ResistanceToC(variant, resistance) + 273.15;
     return k;
 }
 
 float kty_ResistanceToF(kty_variant_t variant, float resistance)
 {
+    if ((variant < 0) || (variant >= KTY_VARIANT_COUNT)) return -FLT_MAX;
     float f = 1.8 * kty_ResistanceToC(variant, resistance) + 32;
     return f;
 }
 
 void kty_GetMinMaxResistance(kty_variant_t variant, int* min, int* max)
 {
-    *min = kty_data_ptr[variant][0].resistance;
-    *max = kty_data_ptr[variant][kty_data_len[variant] - 1].resistance;
+    if ((variant >= 0) && (variant < KTY_VARIANT_COUNT)) {
+        *min = kty_data_ptr[variant][0].resistance;
+        *max = kty_data_ptr[variant][kty_data_len[variant] - 1].resistance;
+    }
 }
 
 
