@@ -10,9 +10,16 @@ The library uses a lookup table and linear interpolation and extrapolation to co
 - KTY81-250
 - KTY81-251
 - KTY81-252
+- KTY83_110
+- KTY83_120
+- KTY83_121
+- KTY83_122
+- KTY83_150
+- KTY83_151
 - KTY84-130
 - KTY84-150
 - KTY84-151
+- KTY84_152
 
 The library also provides functions for reading the minimum and maximum resistance values ​​specified by the manufacturer for a given sensor type. The minimum and maximum resistance correspond to the temperature range within which the sensor can safely operate and to which the sensor's characteristics are specified.
 
