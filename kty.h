@@ -19,6 +19,11 @@ extern "C" {
 
 
 // If you don't want to use all KTY sensors, just comment out the unnecessary ones here
+#define KTY_VARIANT_KTY81_110
+#define KTY_VARIANT_KTY81_120
+#define KTY_VARIANT_KTY81_121
+#define KTY_VARIANT_KTY81_122
+#define KTY_VARIANT_KTY81_150
 #define KTY_VARIANT_KTY81_210
 #define KTY_VARIANT_KTY81_220
 #define KTY_VARIANT_KTY81_221
@@ -38,6 +43,41 @@ extern "C" {
 #define KTY_VARIANT_KTY84_152
 
 
+
+#ifdef KTY_VARIANT_KTY81_110
+#undef KTY_VARIANT_KTY81_110
+#define KTY_DEF_KTY81_110  _KTY_VAR(KTY_VARIANT_KTY81_110)_KTY_LEN(24)_KTY_PTR(kty81_110)
+#else
+#define KTY_DEF_KTY81_110  /**/
+#endif
+
+#ifdef KTY_VARIANT_KTY81_120
+#undef KTY_VARIANT_KTY81_120
+#define KTY_DEF_KTY81_120  _KTY_VAR(KTY_VARIANT_KTY81_120)_KTY_LEN(24)_KTY_PTR(kty81_120)
+#else
+#define KTY_DEF_KTY81_120  /**/
+#endif
+
+#ifdef KTY_VARIANT_KTY81_121
+#undef KTY_VARIANT_KTY81_121
+#define KTY_DEF_KTY81_121  _KTY_VAR(KTY_VARIANT_KTY81_121)_KTY_LEN(24)_KTY_PTR(kty81_121)
+#else
+#define KTY_DEF_KTY81_121  /**/
+#endif
+
+#ifdef KTY_VARIANT_KTY81_122
+#undef KTY_VARIANT_KTY81_122
+#define KTY_DEF_KTY81_122  _KTY_VAR(KTY_VARIANT_KTY81_122)_KTY_LEN(24)_KTY_PTR(kty81_122)
+#else
+#define KTY_DEF_KTY81_122  /**/
+#endif
+
+#ifdef KTY_VARIANT_KTY81_150
+#undef KTY_VARIANT_KTY81_150
+#define KTY_DEF_KTY81_150  _KTY_VAR(KTY_VARIANT_KTY81_150)_KTY_LEN(24)_KTY_PTR(kty81_150)
+#else
+#define KTY_DEF_KTY81_150  /**/
+#endif
 
 #ifdef KTY_VARIANT_KTY81_210
 #undef KTY_VARIANT_KTY81_210
@@ -161,6 +201,11 @@ extern "C" {
 
 
 #define KTY_ITEMS  \
+    KTY_DEF_KTY81_110 \
+    KTY_DEF_KTY81_120 \
+    KTY_DEF_KTY81_121 \
+    KTY_DEF_KTY81_122 \
+    KTY_DEF_KTY81_150 \
     KTY_DEF_KTY81_210 \
     KTY_DEF_KTY81_220 \
     KTY_DEF_KTY81_221 \
