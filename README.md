@@ -15,6 +15,12 @@ The library uses a lookup table and linear interpolation and extrapolation to co
 - KTY81-250
 - KTY81-251
 - KTY81-252
+- KTY82-110
+- KTY82-120
+- KTY82-121
+- KTY82-122
+- KTY82-150
+- KTY82-151
 - KTY83-110
 - KTY83-120
 - KTY83-121
